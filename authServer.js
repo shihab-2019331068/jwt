@@ -21,6 +21,12 @@ app.post('/token', (req, res) => {
     })
 })
 
+app.delete('/logout', (req, res) => {
+    const refreshToken = req.body.token
+    refreshTokens = refreshTokens.filter(token => token !== refreshToken) // Remove the token
+    res.sendStatus(204) // No Content
+})
+
 
 app.post('/login', (req, res) => {
     // Authenticate User
